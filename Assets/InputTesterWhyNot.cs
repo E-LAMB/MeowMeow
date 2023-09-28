@@ -16,7 +16,7 @@ public class InputTesterWhyNot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Mind.target_position = self;
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class InputTesterWhyNot : MonoBehaviour
 
         if (Mind.move_to_target)
         {
-            self.position = Vector3.MoveTowards(self.position, Mind.target_position, Time.deltaTime)
+            self.position = Vector3.MoveTowards(self.position, Mind.target_position.position, Time.deltaTime);
         }
 
     }
