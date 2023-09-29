@@ -5,7 +5,6 @@ using UnityEngine;
 public static class Mind 
 {
 
-    public static bool move_to_target;
-    public static Transform target_position;
+    public static bool can_interact;
 
 }
