@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(MatchPuzzleTile))]
-public class EditorButton_MatchTiles : Editor
+[CustomEditor(typeof(LookMani))]
+public class EditorButtons_Mani: Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        MatchPuzzleTile updater = (MatchPuzzleTile)target;
+        LookMani updater = (LookMani)target;
 
         if (GUILayout.Button("Interact"))
         {
-            updater.FlipMe();
+            updater.Interacted();
         }
     }
 }
 /**/
+

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MatchPuzzleTile : MonoBehaviour
@@ -21,6 +20,9 @@ public class MatchPuzzleTile : MonoBehaviour
     public Material my_material;
     public Material hidden_material;
 
+    public bool is_anomaly;
+
+
     public void BecomeSet(Material newmat, int my_id)
     {
         my_material = newmat;
@@ -39,11 +41,6 @@ public class MatchPuzzleTile : MonoBehaviour
         }
     }
 
-    public void ChangeColor()
-    {
-
-    }
-
     public void FlipDown()
     {
         is_revealed = false;
@@ -60,6 +57,11 @@ public class MatchPuzzleTile : MonoBehaviour
     {
         if (is_set)
         {
+            if (is_anomaly && my_plate.needed_to_complete == my_plate.amount_solved)
+            {
+                is_revealed = true;
+            }
+
             if (is_revealed) { my_renderer.material = my_material; } else { my_renderer.material = hidden_material; }
         }
     }

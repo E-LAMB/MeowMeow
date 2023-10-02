@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +8,9 @@ public class MatchPuzzlePlate : MonoBehaviour
 
     public int amount_to_set;
     public int amount_been_set;
-
+    public int anomalies_to_make;
     public int amount_solved;
+    public int needed_to_complete;
 
     public GameObject first_revealed;
     public GameObject second_revealed;
@@ -58,6 +59,7 @@ public class MatchPuzzlePlate : MonoBehaviour
 
         amount_been_set = 0;
         int limit_break = 0;
+        needed_to_complete = 0;
 
         GameObject button_1 = null;
         GameObject button_2 = null;
@@ -92,6 +94,7 @@ public class MatchPuzzlePlate : MonoBehaviour
 
                 preassigned_symbols[to_give] = true;
                 amount_been_set += 1;
+                needed_to_complete += 1;
                 button_1.GetComponent<MatchPuzzleTile>().BecomeSet(my_symbol_materials[to_give], to_give);
                 button_2.GetComponent<MatchPuzzleTile>().BecomeSet(my_symbol_materials[to_give], to_give);
 
@@ -101,6 +104,33 @@ public class MatchPuzzlePlate : MonoBehaviour
 
         }
 
+        amount_been_set = 0;
+        limit_break = 0;
+
+        button_1 = null;
+
+        while (limit_break < 200 && amount_been_set != anomalies_to_make)
+        {
+            limit_break += 1;
+
+            button_1 = my_list[Random.Range(0, my_list.Length)];
+            if (button_1.GetComponent<MatchPuzzleTile>().is_set)
+            {
+                button_1 = null;
+            }
+
+            if (button_1 != null)
+            {
+
+                to_give += 1;
+                preassigned_symbols[to_give] = true;
+                amount_been_set += 1;
+                button_1.GetComponent<MatchPuzzleTile>().BecomeSet(my_symbol_materials[to_give], to_give); 
+                button_1.GetComponent<MatchPuzzleTile>().is_anomaly = true;
+                button_1 = null;
+            }
+
+        }
 
         on_first = true;
         Mind.can_interact = true;
@@ -116,7 +146,7 @@ public class MatchPuzzlePlate : MonoBehaviour
     void Update()
     {
 
-        if (amount_solved == amount_been_set)
+        if (amount_solved == needed_to_complete)
         {
             reward.SetActive(true);
         }
