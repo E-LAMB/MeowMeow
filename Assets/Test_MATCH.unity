@@ -2376,7 +2376,7 @@ PrefabInstance:
       objectReference: {fileID: 378291188}
     - target: {fileID: 9209604968442349971, guid: 10a8df20c6a1974448a43e225eeb3160, type: 3}
       propertyPath: amount_to_set
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9209604968442349971, guid: 10a8df20c6a1974448a43e225eeb3160, type: 3}
       propertyPath: anomalies_to_make
