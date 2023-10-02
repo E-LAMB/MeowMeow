@@ -44,7 +44,7 @@ public class MatchPuzzlePlate : MonoBehaviour
             {
                 Mind.can_interact = false;
                 disable_future = true;
-                disable_future_timer = 2f;
+                disable_future_timer = 1.5f;
             }
         }
 

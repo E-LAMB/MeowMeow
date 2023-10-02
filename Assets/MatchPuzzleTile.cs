@@ -39,6 +39,11 @@ public class MatchPuzzleTile : MonoBehaviour
         }
     }
 
+    public void ChangeColor()
+    {
+
+    }
+
     public void FlipDown()
     {
         is_revealed = false;
