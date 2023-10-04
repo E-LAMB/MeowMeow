@@ -4,7 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Home.unity
+    guid: 5bf09bf12bb57c5478cc9fd5c803a78d
+  - enabled: 1
+    path: Assets/Test_LOOK.unity
+    guid: 6d395b47c0705e24aae2638f07ac68d4
+  - enabled: 1
+    path: Assets/Test_MATCH.unity
+    guid: bd42c0e554b6f3c4a83db47c1fd2faf7
+  - enabled: 1
+    path: Assets/Test_Dressup.unity
+    guid: 01214fa9dae199e4ebf3097cb4b0d9ad
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 849b60194dae7c347a17456d4e6f4d44, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: aa07ffb55bc5ff2479a0cdadbaed1fb7, type: 2}
