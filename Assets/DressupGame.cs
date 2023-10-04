@@ -36,7 +36,7 @@ public class DressupGame : MonoBehaviour
             {
                 limit_break += 1;
                 cosmetic_head_id += 1;
-                if (cosmetic_head_id > cosmetic_head_material.Length)
+                if (cosmetic_head_id == cosmetic_head_material.Length)
                 {
                     cosmetic_head_id = 0;
                 }
@@ -52,10 +52,15 @@ public class DressupGame : MonoBehaviour
             while (!was_successful && limit_break < 150)
             {
                 limit_break += 1;
+                //Debug.Log("Start");
+                //Debug.Log(cosmetic_head_id);
                 cosmetic_head_id -= 1;
+                //Debug.Log(cosmetic_head_id);
                 if (cosmetic_head_id < 0)
                 {
-                    cosmetic_head_id = cosmetic_head_material.Length;
+                    cosmetic_head_id = cosmetic_head_material.Length - 1;
+                    //Debug.Log("Loop");
+                    //Debug.Log(cosmetic_head_id);
                 }
                 if (head_unlocked[cosmetic_head_id])
                 {
@@ -73,7 +78,7 @@ public class DressupGame : MonoBehaviour
             {
                 limit_break += 1;
                 cosmetic_body_id += 1;
-                if (cosmetic_body_id > cosmetic_body_material.Length)
+                if (cosmetic_body_id == cosmetic_body_material.Length)
                 {
                     cosmetic_body_id = 0;
                 }
@@ -92,7 +97,7 @@ public class DressupGame : MonoBehaviour
                 cosmetic_body_id -= 1;
                 if (cosmetic_body_id < 0)
                 {
-                    cosmetic_body_id = cosmetic_body_material.Length;
+                    cosmetic_body_id = cosmetic_body_material.Length - 1;
                 }
                 if (body_unlocked[cosmetic_body_id])
                 {
@@ -110,7 +115,7 @@ public class DressupGame : MonoBehaviour
             {
                 limit_break += 1;
                 cosmetic_leg_id += 1;
-                if (cosmetic_leg_id > cosmetic_leg_material.Length)
+                if (cosmetic_leg_id == cosmetic_leg_material.Length)
                 {
                     cosmetic_leg_id = 0;
                 }
@@ -129,7 +134,7 @@ public class DressupGame : MonoBehaviour
                 cosmetic_leg_id -= 1;
                 if (cosmetic_leg_id < 0)
                 {
-                    cosmetic_leg_id = cosmetic_leg_material.Length;
+                    cosmetic_leg_id = cosmetic_leg_material.Length - 1;
                 }
                 if (leg_unlocked[cosmetic_leg_id])
                 {

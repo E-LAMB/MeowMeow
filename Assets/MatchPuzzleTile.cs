@@ -57,10 +57,12 @@ public class MatchPuzzleTile : MonoBehaviour
     {
         if (is_set)
         {
+            /*
             if (is_anomaly && my_plate.needed_to_complete == my_plate.amount_solved)
             {
                 is_revealed = true;
             }
+            */
 
             if (is_revealed) { my_renderer.material = my_material; } else { my_renderer.material = hidden_material; }
         }

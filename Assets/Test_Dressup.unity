@@ -2866,7 +2866,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 71ebf0372c4cde846bc01809615c165c, type: 2}
   - {fileID: 2100000, guid: 2d1c7720bc17fc44c80b6ee5004e5494, type: 2}
   head_unlocked: 010101
-  body_unlocked: 010101010101
+  body_unlocked: 010100010101
   leg_unlocked: 01010101
   current_head: {fileID: 2100000, guid: 9e1aec7596976a7469ba8f442f7c2680, type: 2}
   current_body: {fileID: 2100000, guid: 53780df14a4752949a7730b41711ab80, type: 2}

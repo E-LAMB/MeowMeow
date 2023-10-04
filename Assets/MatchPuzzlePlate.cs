@@ -31,6 +31,8 @@ public class MatchPuzzlePlate : MonoBehaviour
 
     public int to_give = 0;
 
+    public GameObject the_anomaly;
+
     public void ItFlipped(GameObject the_shape)
     {
         if (on_first) { first_revealed = the_shape; } else { second_revealed = the_shape; }
@@ -127,6 +129,7 @@ public class MatchPuzzlePlate : MonoBehaviour
                 amount_been_set += 1;
                 button_1.GetComponent<MatchPuzzleTile>().BecomeSet(my_symbol_materials[to_give], to_give); 
                 button_1.GetComponent<MatchPuzzleTile>().is_anomaly = true;
+                the_anomaly = button_1;
                 button_1 = null;
             }
 
@@ -145,10 +148,18 @@ public class MatchPuzzlePlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (amount_solved == needed_to_complete)
+        if (anomalies_to_make > 0)
         {
-            reward.SetActive(true);
+            if (amount_solved == needed_to_complete && the_anomaly.GetComponent<MatchPuzzleTile>().is_revealed)
+            {
+                reward.SetActive(true);
+            }
+        } else
+        {
+            if (amount_solved == needed_to_complete)
+            {
+                reward.SetActive(true);
+            }
         }
 
         if (disable_future)
