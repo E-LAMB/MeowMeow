@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Test_Dressup.unity
     guid: 01214fa9dae199e4ebf3097cb4b0d9ad
+  - enabled: 1
+    path: Assets/Juggle.unity
+    guid: bbef871f925fe4b41bdd25cf5b9685f0
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 849b60194dae7c347a17456d4e6f4d44, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: aa07ffb55bc5ff2479a0cdadbaed1fb7, type: 2}
