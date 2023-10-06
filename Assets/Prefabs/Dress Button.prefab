@@ -239,6 +239,7 @@ MonoBehaviour:
   my_index: 0
   my_dress: {fileID: 0}
   my_renderer: {fileID: 3795153149961268500}
+  locked: {fileID: 2100000, guid: d5146ab340244984ba9dbea22ce66885, type: 2}
 --- !u!1 &4866009830469749653
 GameObject:
   m_ObjectHideFlags: 0

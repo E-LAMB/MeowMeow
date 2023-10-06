@@ -13,12 +13,12 @@ public class DressupButtons : MonoBehaviour
     [Header("Assign in PREFAB / Automatically")]
     public NewDressup my_dress;
     public Renderer my_renderer;
+    public Material locked;
 
     // Start is called before the first frame update
     void Start()
     {
         my_dress = GameObject.FindGameObjectWithTag("DressyWessy").GetComponent<NewDressup>();
-        my_renderer.material = my_cosmetic;
     }
 
     // Update is called once per frame
@@ -51,6 +51,43 @@ public class DressupButtons : MonoBehaviour
         if (valid_use)
         {
             my_dress.SwitchClothing(my_type, my_cosmetic);
+        }
+    }
+
+    private void Update()
+    {
+        if (my_type == "HEAD")
+        {
+            if (!my_dress.head_unlocked[my_index])
+            {
+                my_renderer.material = locked;
+
+            } else
+            {
+                my_renderer.material = my_cosmetic;
+            }
+        }
+        if (my_type == "BODY")
+        {
+            if (!my_dress.body_unlocked[my_index])
+            {
+                my_renderer.material = locked;
+
+            } else
+            {
+                my_renderer.material = my_cosmetic;
+            }
+        }
+        if (my_type == "LEGS")
+        {
+            if (!my_dress.leg_unlocked[my_index])
+            {
+                my_renderer.material = locked;
+
+            } else
+            {
+                my_renderer.material = my_cosmetic;
+            }
         }
     }
 }

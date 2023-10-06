@@ -3092,18 +3092,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2c3fe2afb40a3438ec7faa4c3e4551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head_unlocked: 000000
-  body_unlocked: 000000000000
-  leg_unlocked: 00000000
+  head_unlocked: 010101
+  body_unlocked: 010101010101
+  leg_unlocked: 01010101
   current_head: {fileID: 2100000, guid: 9e1aec7596976a7469ba8f442f7c2680, type: 2}
   current_body: {fileID: 2100000, guid: 53780df14a4752949a7730b41711ab80, type: 2}
   current_leg: {fileID: 2100000, guid: 35d3c3fa2d5370e4c878eed51b193e49, type: 2}
   head_renderer: {fileID: 824185937}
   body_renderer: {fileID: 87395612}
   leg_renderer: {fileID: 1688480812}
-  cloth_group_head: {fileID: 728273344}
-  cloth_group_bods: {fileID: 1498705534}
-  cloth_group_toes: {fileID: 1815229078}
+  clothing_group: []
+  current_group: 0
 --- !u!1 &728273344
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,14 +4212,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520835114}
-  m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.51}
+  m_LocalRotation: {x: 0.50000024, y: 0.4999999, z: -0.49999982, w: -0.5000001}
+  m_LocalPosition: {x: -0.00000020861626, y: 0.00000023841864, z: -0.509999}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 385622929}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 180, y: 90, z: -90}
 --- !u!23 &1520835116
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4241,7 +4240,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e1aec7596976a7469ba8f442f7c2680, type: 2}
+  - {fileID: 2100000, guid: 5b798003f50388043b649edfcd44d145, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

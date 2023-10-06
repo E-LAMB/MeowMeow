@@ -33,7 +33,7 @@ public class MatchPuzzleTile : MonoBehaviour
 
     public void FlipMe()
     {
-        if (!is_revealed && is_set && Mind.can_interact)
+        if (!is_revealed && is_set && Mind.can_interact && my_plate.allow_interaction)
         {
             is_revealed = true;
 

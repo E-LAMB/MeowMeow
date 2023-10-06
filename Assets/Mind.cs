@@ -5,6 +5,7 @@ using UnityEngine;
 public static class Mind 
 {
 
-    public static bool can_interact;
+    public static bool can_interact = true;
+    public static bool able_to_teleport = true;
 
 }

@@ -14,17 +14,18 @@ public class TeleportPad : MonoBehaviour
     public XRSimpleInteractable interactor;
 
     public ParticleSystem particle_effect;
+    public bool effectState;
 
     public void TakeMe()
     {
-        if (Vector3.Distance(player_rig.transform.position, gameObject.transform.position) > 6f)
+        if (Vector3.Distance(player_rig.transform.position, gameObject.transform.position) > 6f && Mind.able_to_teleport)
         {
             particle_effect.Play();
             player_rig.transform.position = new Vector3(gameObject.transform.position.x, player_rig.transform.position.y, gameObject.transform.position.z); 
             teleported = true;
-            my_renderer.enabled = false;
+            //my_renderer.enabled = false;
             interactor.enabled = false;
-            effects.SetActive(false);
+            effectState = false;
         }
     }
 
@@ -44,14 +45,16 @@ public class TeleportPad : MonoBehaviour
             TakeMe();
         }
 
+        effects.SetActive(effectState && Mind.able_to_teleport);
+
         if (teleported)
         {
             if (Vector3.Distance(player_rig.transform.position, gameObject.transform.position) > 6f)
             {
                 teleported = false;
-                my_renderer.enabled = true;
+                //my_renderer.enabled = true;
                 interactor.enabled = true;
-                effects.SetActive(true);
+                effectState = true;
             }
         }
     }
