@@ -242,7 +242,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 40
   m_Direction: 1
-  m_Center: {x: 0, y: 10, z: 0}
+  m_Center: {x: 0, y: 15, z: 0}
 --- !u!1 &4002209102931112818
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,7 +5416,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.6
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5799,9 +5799,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: 0, y: 0.5, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.7, y: 2, z: 0.7}
+    m_Scale: {x: 0.7, y: 2.5, z: 0.7}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
