@@ -42,7 +42,7 @@ public class DressupButtons : MonoBehaviour
         }
         if (my_type == "LEGS")
         {
-            if (!my_dress.leg_unlocked[my_index])
+            if (!my_dress.legs_unlocked[my_index])
             {
                 valid_use = false;
             }
@@ -80,7 +80,7 @@ public class DressupButtons : MonoBehaviour
         }
         if (my_type == "LEGS")
         {
-            if (!my_dress.leg_unlocked[my_index])
+            if (!my_dress.legs_unlocked[my_index])
             {
                 my_renderer.material = locked;
 

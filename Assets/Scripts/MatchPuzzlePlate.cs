@@ -33,6 +33,11 @@ public class MatchPuzzlePlate : MonoBehaviour
 
     public GameObject the_anomaly;
 
+    public bool has_given_award;
+    public string my_id;
+
+    public PuzzleProgressionShower my_progressor;
+
     public void ItFlipped(GameObject the_shape)
     {
         if (on_first) { first_revealed = the_shape; } else { second_revealed = the_shape; }
@@ -139,6 +144,16 @@ public class MatchPuzzlePlate : MonoBehaviour
         Mind.can_interact = true;
     }
 
+    void Reward()
+    {
+        if (!has_given_award)
+        {
+            has_given_award = true;
+            my_progressor.match_progress ++;
+            my_progressor.AwardCosmetic();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -152,13 +167,13 @@ public class MatchPuzzlePlate : MonoBehaviour
         {
             if (amount_solved == needed_to_complete && the_anomaly.GetComponent<MatchPuzzleTile>().is_revealed)
             {
-                reward.SetActive(true);
+                Reward();
             }
         } else
         {
             if (amount_solved == needed_to_complete)
             {
-                reward.SetActive(true);
+                Reward();
             }
         }
 
