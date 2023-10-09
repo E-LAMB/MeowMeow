@@ -326,3 +326,4 @@ MonoBehaviour:
   my_material: {fileID: 0}
   hidden_material: {fileID: 2100000, guid: d4c443c3f81d43a469b102f6a3cc8ef2, type: 2}
   is_anomaly: 0
+  my_interactable: {fileID: 4847561913594278628}

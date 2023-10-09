@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class MatchPuzzleTile : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class MatchPuzzleTile : MonoBehaviour
 
     public bool is_anomaly;
 
+    public XRSimpleInteractable my_interactable;
+
 
     public void BecomeSet(Material newmat, int my_id)
     {
@@ -33,11 +36,14 @@ public class MatchPuzzleTile : MonoBehaviour
 
     public void FlipMe()
     {
-        if (!is_revealed && is_set && Mind.can_interact && my_plate.allow_interaction)
+        if (my_plate.my_progressor.match_state == 0)
         {
-            is_revealed = true;
+            if (!is_revealed && is_set && Mind.can_interact && my_plate.allow_interaction)
+            {
+                is_revealed = true;
 
-            my_plate.ItFlipped(gameObject);
+                my_plate.ItFlipped(gameObject);
+            }
         }
     }
 
@@ -49,7 +55,7 @@ public class MatchPuzzleTile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        my_interactable = gameObject.GetComponent<XRSimpleInteractable>();
     }
 
     // Update is called once per frame
@@ -64,7 +70,10 @@ public class MatchPuzzleTile : MonoBehaviour
             }
             */
 
-            if (is_revealed) { my_renderer.material = my_material; } else { my_renderer.material = hidden_material; }
+            my_interactable.enabled = !my_plate.currently_punishing;
+            if (is_revealed) { my_renderer.material = my_material; my_interactable.enabled = false; } else { my_renderer.material = hidden_material; my_interactable.enabled = true;  }
+            my_interactable.enabled = my_plate.my_progressor.match_state == 0;
         }
+
     }
 }

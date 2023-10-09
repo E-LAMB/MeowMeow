@@ -36,7 +36,11 @@ public class MatchPuzzlePlate : MonoBehaviour
     public bool has_given_award;
     public string my_id;
 
+    public bool currently_punishing;
+
     public PuzzleProgressionShower my_progressor;
+
+    public TMPro.TextMeshPro my_text;
 
     public void ItFlipped(GameObject the_shape)
     {
@@ -53,6 +57,7 @@ public class MatchPuzzlePlate : MonoBehaviour
                 Mind.can_interact = false;
                 disable_future = true;
                 disable_future_timer = 1.5f;
+                currently_punishing = true;
             }
         }
 
@@ -71,7 +76,7 @@ public class MatchPuzzlePlate : MonoBehaviour
         GameObject button_1 = null;
         GameObject button_2 = null;
 
-        while (limit_break < 200 && amount_been_set != amount_to_set)
+        while (limit_break < 800 && amount_been_set != amount_to_set)
         {
             limit_break += 1;
 
@@ -149,8 +154,8 @@ public class MatchPuzzlePlate : MonoBehaviour
         if (!has_given_award)
         {
             has_given_award = true;
-            my_progressor.match_progress ++;
             my_progressor.AwardCosmetic();
+            my_progressor.match_state = 1;
         }
     }
 
@@ -158,22 +163,27 @@ public class MatchPuzzlePlate : MonoBehaviour
     void Start()
     {
         SetupGame();
+        my_text.color = Color.red;
     }
 
     // Update is called once per frame
     void Update()
     {
+        my_text.text = amount_solved.ToString() + "/" + needed_to_complete.ToString(); 
+
         if (anomalies_to_make > 0)
         {
             if (amount_solved == needed_to_complete && the_anomaly.GetComponent<MatchPuzzleTile>().is_revealed)
             {
                 Reward();
+                my_text.color = Color.green;
             }
         } else
         {
             if (amount_solved == needed_to_complete)
             {
                 Reward();
+                my_text.color = Color.green;
             }
         }
 
@@ -184,6 +194,7 @@ public class MatchPuzzlePlate : MonoBehaviour
             {
                 disable_future = false;
                 Mind.can_interact = true;
+                currently_punishing = false;
                 first_revealed.GetComponent<MatchPuzzleTile>().FlipDown();
                 second_revealed.GetComponent<MatchPuzzleTile>().FlipDown();
             }
