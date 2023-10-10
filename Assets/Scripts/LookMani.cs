@@ -18,6 +18,12 @@ public class LookMani : MonoBehaviour
     public int setup_id;
     public XRSimpleInteractable interactable;
 
+    public void Reset()
+    {
+        is_right = false;
+        should_be_rise = false;
+        my_body.SetActive(false);
+    }
     public void Interacted()
     {
         if (my_manager.is_active)
