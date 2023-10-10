@@ -99,14 +99,16 @@ public class LookPuzzle : MonoBehaviour
             bool chosen_bool = false;
             int limit_break = 0;
 
-            while ((chosen_one == null || !chosen_bool) && limit_break < 500)
+            while ((chosen_one == null || chosen_bool) && limit_break < 500)
             {
                 limit_break += 1;
                 chosen_one = all_mans[Random.Range(0, all_mans.Length - 1)];
-                if (chosen_one.GetComponent<LookMani>()) { chosen_bool = chosen_one.GetComponent<LookMani>().setup_id == setup_id; }
+                if (chosen_one.GetComponent<LookMani>()) { chosen_bool = (chosen_one.GetComponent<LookMani>().setup_id == setup_id); }
+                Debug.Log(chosen_bool);
             }
-            if (limit_break == 500) { Debug.Log("LIMIT BROKE"); }
+            if (limit_break == 500) { Debug.Log("LIMIT BROKE"); Debug.Log(chosen_one); }
 
+            chosen_one.GetComponent<LookMani>().setup_id = setup_id;
             chosen_one.GetComponent<LookMani>().Setup(false, selected_head, selected_body, selected_leg, true);
 
             current_set += 1;
@@ -161,13 +163,14 @@ public class LookPuzzle : MonoBehaviour
             bool chosen_bool = false;
             int limit_break = 0;
 
-            while ((chosen_one == null || !chosen_bool) && limit_break < 500) 
+            while ((chosen_one == null || chosen_bool) && limit_break < 500)
             {
                 limit_break += 1;
                 chosen_one = all_mans[Random.Range(0, all_mans.Length - 1)];
-                if (chosen_one.GetComponent<LookMani>()) { chosen_bool = chosen_one.GetComponent<LookMani>().setup_id == setup_id; }
+                if (chosen_one.GetComponent<LookMani>()) { chosen_bool = (chosen_one.GetComponent<LookMani>().setup_id == setup_id); }
+                Debug.Log(chosen_bool);
             }
-            if (limit_break == 500) { Debug.Log("LIMIT BROKE"); }
+            if (limit_break == 500) { Debug.Log("LIMIT BROKE"); Debug.Log(chosen_one); }
 
             chosen_one.GetComponent<LookMani>().Setup(false, selected_head, selected_body, selected_leg, true);
 

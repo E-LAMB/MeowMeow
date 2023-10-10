@@ -9,6 +9,8 @@ public class TeleportPad : MonoBehaviour
     public Transform player_rig;
     public bool teleported;
 
+    public Collider my_collider;
+
     public GameObject effects;
     public Renderer my_renderer;
     public XRSimpleInteractable interactor;
@@ -48,6 +50,7 @@ public class TeleportPad : MonoBehaviour
         }
 
         effects.SetActive(effectState && Mind.able_to_teleport);
+        my_collider.enabled = (effectState && Mind.able_to_teleport);
 
         if (teleported)
         {

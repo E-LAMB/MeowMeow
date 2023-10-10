@@ -39,11 +39,11 @@ public class LookMani : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+        interactable.enabled = false;
     }
 
     public void Setup(bool is_correct, Material my_head_material, Material my_body_material, Material my_legs_material, bool should_rise)
     {
-        setup_id = my_manager.setup_id;
         should_be_rise = should_rise || is_correct;
         is_right = is_correct;
         head.material = my_head_material;

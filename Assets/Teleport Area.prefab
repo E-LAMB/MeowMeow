@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_rig: {fileID: 0}
   teleported: 0
+  my_collider: {fileID: 6520284302693319964}
   effects: {fileID: 6173136408676020286}
   my_renderer: {fileID: 1638228719662345661}
   interactor: {fileID: 8605323587685794735}
