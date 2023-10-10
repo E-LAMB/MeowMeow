@@ -16,12 +16,14 @@ public class TeleportPad : MonoBehaviour
     public ParticleSystem particle_effect;
     public bool effectState;
 
+    public float vertical_height;
+
     public void TakeMe()
     {
         if (Vector3.Distance(player_rig.transform.position, gameObject.transform.position) > 6f && Mind.able_to_teleport)
         {
             particle_effect.Play();
-            player_rig.transform.position = new Vector3(gameObject.transform.position.x, player_rig.transform.position.y, gameObject.transform.position.z); 
+            player_rig.transform.position = new Vector3(gameObject.transform.position.x, vertical_height, gameObject.transform.position.z); 
             teleported = true;
             //my_renderer.enabled = false;
             interactor.enabled = false;

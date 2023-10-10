@@ -36,7 +36,7 @@ Transform:
   - {fileID: 8685092569012153397}
   - {fileID: 2508120004793577237}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6717851293632437262
 MeshFilter:
@@ -107,6 +107,7 @@ MonoBehaviour:
   interactor: {fileID: 8605323587685794735}
   particle_effect: {fileID: 0}
   effectState: 1
+  vertical_height: 2.5
 --- !u!114 &8605323587685794735
 MonoBehaviour:
   m_ObjectHideFlags: 0

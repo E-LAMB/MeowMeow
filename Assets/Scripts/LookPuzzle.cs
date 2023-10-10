@@ -24,10 +24,20 @@ public class LookPuzzle : MonoBehaviour
     public Renderer template_leg;
 
     public int lives;
+    public bool is_active;
+    public int amount_to_set;
+
+    public int setup_id;
+
+    public PuzzleProgressionShower progressor;
 
     public void Completed()
     {
-        prize.SetActive(true);
+        // prize.SetActive(true);
+        progressor.look_progress += 1;
+        progressor.look_state = 1;
+        progressor.AwardCosmetic();
+        progressor.CompletedLook();
     }
 
     public void Failed()
@@ -38,19 +48,24 @@ public class LookPuzzle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetUpGame();
+        // SetUpGame();
     }
 
-    public void SetUpGame()
+    public void SetUpGame(int progression)
     {
-        lives = 3;
+        lives = 1;
+        setup_id += 1;
+
+        amount_to_set = progression * 2;
+        // if (amount_to_set < 0) { amount_to_set = 0; }
+        if (amount_to_set > all_mans.Length) { amount_to_set = all_mans.Length; }
 
         head_chosen = all_head_materials[Random.Range(0, all_head_materials.Length)];
         body_chosen = all_body_materials[Random.Range(0, all_body_materials.Length)];
         leg_chosen = all_leg_materials[Random.Range(0, all_leg_materials.Length)];
 
-        int amount_to_set = all_mans.Length;
         int current_set = 0;
+        GameObject chosen_one;
 
         Material selected_head;
         Material selected_body;
@@ -69,16 +84,30 @@ public class LookPuzzle : MonoBehaviour
                 selected_leg = all_leg_materials[Random.Range(0, all_leg_materials.Length)];
             }
 
-            all_mans[current_set].GetComponent<LookMani>().Setup(false, selected_head, selected_body, selected_leg);
+            chosen_one = null;
+            bool chosen_bool = false;
+            int limit_break = 0;
+
+            while ((chosen_one == null || !chosen_bool) && limit_break < 500) 
+            {
+                limit_break += 1;
+                chosen_one = all_mans[Random.Range(0, all_mans.Length - 1)];
+                if (chosen_one.GetComponent<LookMani>()) { chosen_bool = chosen_one.GetComponent<LookMani>().setup_id == setup_id; }
+            }
+            if (limit_break == 500) { Debug.Log("LIMIT BROKE"); }
+
+            chosen_one.GetComponent<LookMani>().Setup(false, selected_head, selected_body, selected_leg, true);
 
             current_set += 1;
         }
 
-        all_mans[Random.Range(0, all_mans.Length)].GetComponent<LookMani>().Setup(true, head_chosen, body_chosen, leg_chosen);
+        all_mans[Random.Range(0, all_mans.Length)].GetComponent<LookMani>().Setup(true, head_chosen, body_chosen, leg_chosen, true);
 
         template_head.material = head_chosen;
         template_body.material = body_chosen;
         template_leg.material = leg_chosen;
+
+        is_active = true;
 
     }
 

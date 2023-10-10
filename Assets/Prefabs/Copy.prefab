@@ -119,7 +119,7 @@ Transform:
   - {fileID: 7884138636635510057}
   - {fileID: 3234244395586592345}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
 --- !u!33 &6093544193751401184
 MeshFilter:
@@ -209,6 +209,10 @@ MonoBehaviour:
   head: {fileID: 6947733431813991284}
   body: {fileID: 9011750378352139242}
   legs: {fileID: 8096107093912069534}
+  should_be_rise: 0
+  my_body: {fileID: 7646670560690018966}
+  setup_id: 0
+  interactable: {fileID: 3758666605513467010}
 --- !u!114 &3758666605513467010
 MonoBehaviour:
   m_ObjectHideFlags: 0
