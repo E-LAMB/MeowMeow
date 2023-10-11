@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -46,7 +46,7 @@ public class TeleportPad : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && !teleported)
         {
-            TakeMe();
+            // TakeMe();
         }
 
         effects.SetActive(effectState && Mind.able_to_teleport);
