@@ -102,7 +102,7 @@ public class LookPuzzle : MonoBehaviour
             while ((chosen_one == null || chosen_bool) && limit_break < 500)
             {
                 limit_break += 1;
-                chosen_one = all_mans[Random.Range(0, all_mans.Length - 1)];
+                chosen_one = all_mans[Random.Range(0, all_mans.Length)];
                 if (chosen_one.GetComponent<LookMani>()) { chosen_bool = (chosen_one.GetComponent<LookMani>().setup_id == setup_id); }
                 Debug.Log(chosen_bool);
             }
@@ -166,7 +166,7 @@ public class LookPuzzle : MonoBehaviour
             while ((chosen_one == null || chosen_bool) && limit_break < 500)
             {
                 limit_break += 1;
-                chosen_one = all_mans[Random.Range(0, all_mans.Length - 1)];
+                chosen_one = all_mans[Random.Range(0, all_mans.Length)];
                 if (chosen_one.GetComponent<LookMani>()) { chosen_bool = (chosen_one.GetComponent<LookMani>().setup_id == setup_id); }
                 Debug.Log(chosen_bool);
             }
