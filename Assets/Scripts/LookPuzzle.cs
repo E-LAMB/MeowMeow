@@ -31,6 +31,10 @@ public class LookPuzzle : MonoBehaviour
 
     public PuzzleProgressionShower progressor;
 
+    public GameObject good_light;
+    public GameObject bad_light;
+    public GameObject normal_light;
+
     public void Completed()
     {
         // prize.SetActive(true);
@@ -38,6 +42,11 @@ public class LookPuzzle : MonoBehaviour
         progressor.look_state = 1;
         progressor.AwardCosmetic();
         progressor.CompletedLook();
+        is_active = false;
+
+        good_light.SetActive(true);
+        bad_light.SetActive(false);
+        normal_light.SetActive(false);
     }
 
     public void Failed()
@@ -122,6 +131,10 @@ public class LookPuzzle : MonoBehaviour
 
         is_active = true;
 
+        good_light.SetActive(false);
+        bad_light.SetActive(false);
+        normal_light.SetActive(true);
+
     }
 
     public void ResetPuzzle()
@@ -185,6 +198,10 @@ public class LookPuzzle : MonoBehaviour
 
         is_active = true;
 
+        good_light.SetActive(false);
+        bad_light.SetActive(false);
+        normal_light.SetActive(true);
+
     }
 
     // Update is called once per frame
@@ -194,7 +211,14 @@ public class LookPuzzle : MonoBehaviour
         {
             lives = 1;
             Debug.Log("OUCH!");
-            ResetPuzzle();
+            is_active = false;
+            progressor.look_state = 1;
+            progressor.CompletedLook();
+
+            good_light.SetActive(false);
+            bad_light.SetActive(true);
+            normal_light.SetActive(false);
+
             // Debug.Break();
         }
     }

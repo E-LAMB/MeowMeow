@@ -36,7 +36,7 @@ public class LookMani : MonoBehaviour
             else
             {
                 my_manager.Failed();
-                gameObject.SetActive(false);
+                my_body.SetActive(false);
             }
         }
         interactable.enabled = false;
