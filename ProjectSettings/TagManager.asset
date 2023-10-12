@@ -8,6 +8,7 @@ TagManager:
   - XR_RIG
   - DressyWessy
   - CosMan
+  - Broadcaster
   layers:
   - Default
   - TransparentFX
