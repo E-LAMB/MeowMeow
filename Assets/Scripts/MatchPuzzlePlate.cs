@@ -17,6 +17,8 @@ public class MatchPuzzlePlate : MonoBehaviour
 
     public bool on_first;
 
+    public Material evil_material;
+
     public GameObject[] my_list;
 
     public bool[] preassigned_symbols;
@@ -137,7 +139,7 @@ public class MatchPuzzlePlate : MonoBehaviour
                 to_give += 1;
                 preassigned_symbols[to_give] = true;
                 amount_been_set += 1;
-                button_1.GetComponent<MatchPuzzleTile>().BecomeSet(my_symbol_materials[to_give], to_give); 
+                button_1.GetComponent<MatchPuzzleTile>().BecomeSet(evil_material, to_give); 
                 button_1.GetComponent<MatchPuzzleTile>().is_anomaly = true;
                 the_anomaly = button_1;
                 button_1 = null;
@@ -154,7 +156,7 @@ public class MatchPuzzlePlate : MonoBehaviour
         if (!has_given_award)
         {
             has_given_award = true;
-            my_progressor.AwardCosmetic();
+            my_progressor.CompletedMatch();
             my_progressor.match_state = 1;
         }
     }

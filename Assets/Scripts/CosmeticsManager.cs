@@ -22,7 +22,7 @@ public class CosmeticsManager : MonoBehaviour
     BODY COSMETICS
     * Default Cosmetic (Temp)        #CB_TEMP_DEF
     * Agitating Red Shirt (Temp)     #CB_TEMP_RED1
-    * Behind The Shirt (Temp)        #CB_TEMP_PURPLE1
+    * Backstage Shirt (Temp)         #CB_TEMP_PURPLE1
     * Biting The Blue (Temp)         #CB_TEMP_BLUE1
     * Lime Shirt (Temp)              #CB_TEMP_LIME1
     * Mellow Yellow Shirt (Temp)     #CB_TEMP_YELLOW1
@@ -31,7 +31,7 @@ public class CosmeticsManager : MonoBehaviour
     * Default Cosmetic (Temp)        #CL_TEMP_DEF
     * Calm Red Pants (Temp)          #CL_TEMP_RED1
     * Lime and Lime Pants (Temp)     #CL_TEMP_LIME1
-    * Darker Blue Pants (Temp)       #CL_TEMP_BLUE1
+    * Deep End Pants (Temp)          #CL_TEMP_BLUE1
     
     */
 
@@ -40,10 +40,11 @@ public class CosmeticsManager : MonoBehaviour
     public string current_cosmetics = "#CH_TEMP_DEF#CB_TEMP_DEF#CL_TEMP_DEF";
 
     public string[] cosmetics_to_earn;
+    public string[] cosmetic_names;
 
     public bool give_random;
 
-    public void RewardRandomCosmetic()
+    public string RewardRandomCosmetic()
     {
         string chosen = "nothinghere";
         int chosen_int = 0;
@@ -58,10 +59,13 @@ public class CosmeticsManager : MonoBehaviour
 
         if (limit_break == 500) { Debug.Log("LIMIT BROKEN"); }
 
+        string itsname = cosmetic_names[chosen_int];
         cosmetics_to_earn[chosen_int] = "nothinghere";
         current_cosmetics += "#" + chosen;
 
         my_new_dressup.ReadCosmetics();
+
+        return itsname;
     }
 
     // Start is called before the first frame update

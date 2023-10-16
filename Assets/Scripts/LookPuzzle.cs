@@ -39,8 +39,7 @@ public class LookPuzzle : MonoBehaviour
     {
         // prize.SetActive(true);
         progressor.look_progress += 1;
-        progressor.look_state = 1;
-        progressor.AwardCosmetic();
+        progressor.look_state = 1; 
         progressor.CompletedLook();
         is_active = false;
 

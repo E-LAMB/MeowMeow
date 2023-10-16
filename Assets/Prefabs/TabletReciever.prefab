@@ -151,5 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f63e6f6bbf83704699bcdf01c71392c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  my_broadcaster: {fileID: 0}
   player_is_close: 0
+  notification: {fileID: 0}
+  thumbs_up_sprite: {fileID: 0}
+  notification_gob: {fileID: 0}
+  notification_time: 0

@@ -31,6 +31,9 @@ public class PuzzleProgressionShower : MonoBehaviour
 
     public CosmeticsManager cosmetics_manager;
 
+    public TabletReciever match_receiver;
+    public TabletReciever look_receiver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +41,14 @@ public class PuzzleProgressionShower : MonoBehaviour
         lookPuzzle.SetUpGame(look_progress);
     }
 
-    public void AwardCosmetic()
+    public void CompletedMatch()
     {
-        cosmetics_manager.RewardRandomCosmetic();
+        match_receiver.Awarded(cosmetics_manager.RewardRandomCosmetic());
     }
 
     public void CompletedLook()
     {
-
+        look_receiver.Awarded(cosmetics_manager.RewardRandomCosmetic());
     }
 
     // Update is called once per frame

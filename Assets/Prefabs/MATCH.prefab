@@ -2048,6 +2048,7 @@ MonoBehaviour:
   first_revealed: {fileID: 0}
   second_revealed: {fileID: 0}
   on_first: 0
+  evil_material: {fileID: 2100000, guid: f1732d387c7fba64ba12ab66f701bcb2, type: 2}
   my_list:
   - {fileID: 1866145966107404033}
   - {fileID: 9112376686513365853}
@@ -2073,9 +2074,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7b85cf31606893c4fb1180cb9c340e17, type: 2}
   - {fileID: 2100000, guid: 1bd8cab522b8d5d4bbc83ce7d1456605, type: 2}
   - {fileID: 2100000, guid: 8c6a9b7026e2e8b47aab59a2ccef7d41, type: 2}
-  - {fileID: 2100000, guid: 7d1163647224b3a418342e4d7a07c80b, type: 2}
-  - {fileID: 2100000, guid: 26d8adbf88d8f9b4c96bb312ef9bb14a, type: 2}
   - {fileID: 2100000, guid: dacfb4212373ec345b596c08afb1fb52, type: 2}
+  - {fileID: 2100000, guid: 26d8adbf88d8f9b4c96bb312ef9bb14a, type: 2}
   allow_interaction: 1
   disable_future: 0
   disable_future_timer: 0
@@ -4845,7 +4845,7 @@ Transform:
   - {fileID: 1443315735234393631}
   - {fileID: 3579670195612889529}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &8815472655787565031
 GameObject:
