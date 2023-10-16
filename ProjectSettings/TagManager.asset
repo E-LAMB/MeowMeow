@@ -9,6 +9,7 @@ TagManager:
   - DressyWessy
   - CosMan
   - Broadcaster
+  - HeadsetKit
   layers:
   - Default
   - TransparentFX

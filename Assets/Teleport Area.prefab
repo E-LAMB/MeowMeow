@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4929506076373795129}
   - component: {fileID: 8605323587685794735}
   - component: {fileID: 6520284302693319964}
+  - component: {fileID: 6951362176432306686}
   m_Layer: 0
   m_Name: Teleport Area
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   - {fileID: 2508120004793577237}
   - {fileID: 9157876985552876045}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6717851293632437262
 MeshFilter:
@@ -247,6 +248,33 @@ CapsuleCollider:
   m_Height: 40
   m_Direction: 1
   m_Center: {x: 0, y: 15, z: 0}
+--- !u!114 &6951362176432306686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21603289199615507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b338eee843d4bc409b7274afa1797e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myevent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4929506076373795129}
+        m_TargetAssemblyTypeName: TeleportPad, Assembly-CSharp
+        m_MethodName: TakeMe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1209340854431418620
 GameObject:
   m_ObjectHideFlags: 0

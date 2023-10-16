@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3178166421808917934}
   - component: {fileID: 4847561913594278628}
   - component: {fileID: 1181993772843561399}
+  - component: {fileID: 8493929810471777283}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -118,7 +119,7 @@ Transform:
   m_Children:
   - {fileID: 6001456501883682780}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!33 &6977691388830215744
 MeshFilter:
@@ -327,3 +328,30 @@ MonoBehaviour:
   hidden_material: {fileID: 2100000, guid: d4c443c3f81d43a469b102f6a3cc8ef2, type: 2}
   is_anomaly: 0
   my_interactable: {fileID: 4847561913594278628}
+--- !u!114 &8493929810471777283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3797320653781818242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b338eee843d4bc409b7274afa1797e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myevent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1181993772843561399}
+        m_TargetAssemblyTypeName: MatchPuzzleTile, Assembly-CSharp
+        m_MethodName: FlipMe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

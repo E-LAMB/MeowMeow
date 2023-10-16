@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 298540184904338468}
   - component: {fileID: 3438071984975148508}
   - component: {fileID: 3758666605513467010}
+  - component: {fileID: 2740185572369663764}
   m_Layer: 0
   m_Name: Copy
   m_TagString: Untagged
@@ -121,7 +122,7 @@ Transform:
   - {fileID: 7704903011129309557}
   - {fileID: 8457987794459867230}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
 --- !u!33 &6093544193751401184
 MeshFilter:
@@ -329,6 +330,33 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2740185572369663764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585390826010824260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b338eee843d4bc409b7274afa1797e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myevent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3438071984975148508}
+        m_TargetAssemblyTypeName: LookMani, Assembly-CSharp
+        m_MethodName: Interacted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &728479224176986285
 GameObject:
   m_ObjectHideFlags: 0
