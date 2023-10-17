@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NewDressup : MonoBehaviour
@@ -26,6 +27,16 @@ public class NewDressup : MonoBehaviour
     public Renderer button_DOWN;
 
     public bool has_not_read_cosmetics = true;
+
+    public void ForceGroup(int change)
+    {
+        current_group = change;
+        for (int i = 0; i < clothing_group.Length; i++)
+        {
+            clothing_group[i].SetActive(false);
+        }
+        clothing_group[change].SetActive(true);
+    }
 
     public void SwitchGroups(int change)
     {
@@ -82,7 +93,7 @@ public class NewDressup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SwitchGroups(0);
+        // SwitchGroups(0);
         {
             ReadCosmetics();
         }
