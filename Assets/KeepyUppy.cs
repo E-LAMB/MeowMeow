@@ -20,6 +20,7 @@ public class KeepyUppy : MonoBehaviour
 
     public float health_disc_a;
     public float health_disc_b;
+    public float health_disc_c;
 
     public float button_cooldown;
 
@@ -29,14 +30,30 @@ public class KeepyUppy : MonoBehaviour
 
     public Transform disc_a_trans;
     public Transform disc_b_trans;
+    public Transform disc_c_trans;
 
     public Transform disc_marker_up;
     public Transform disc_marker_down;
 
+    public float a_speed;
+    public float b_speed;
+    public float c_speed;
+
+    public float cylinder_speed;
+
+    public Material active_button;
+    public Material inactive_button;
+
+    public Renderer renderer_a;
+    public Renderer renderer_b;
+    public Renderer renderer_c;
+
+    public GameObject particles;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        particles.SetActive(false);
     }
 
     public void GameBegin()
@@ -45,6 +62,11 @@ public class KeepyUppy : MonoBehaviour
         {
             health_disc_a = 100f;
             health_disc_b = 100f;
+            health_disc_c = 100f;
+            a_speed = 0f;
+            b_speed = 0f;
+            c_speed = 0f;
+            cylinder_speed = 6f + difficulty;
             currently_playing = true;
             rising_disc = "none";
         }
@@ -52,9 +74,10 @@ public class KeepyUppy : MonoBehaviour
 
     public void PushDisc(string disc_name)
     {
-        if (currently_playing && rising_disc == "none")
+        if (currently_playing && button_cooldown < 0f && rising_disc != disc_name && ((disc_name == "A" && health_disc_a < 90f) || (disc_name == "B" && health_disc_b < 90f)) || (disc_name == "C" && health_disc_c < 90f))
         {
             rising_disc = disc_name;
+            button_cooldown = 0.4f + (difficulty / 10f);
         }
     }
 
@@ -76,17 +99,42 @@ public class KeepyUppy : MonoBehaviour
         if (currently_playing)
         {
 
-            if (rising_disc != "A") { health_disc_a -= Random.Range(Time.deltaTime * ((difficulty * 5f) + 15f), Time.deltaTime * ((difficulty * 5f) + 15f * 1.5f)); }
-            else { health_disc_a += Time.deltaTime * 20f; if (health_disc_a > 100f) { rising_disc = "none"; } }
+            if (rising_disc == "none") { particles.SetActive(false); }
+            if (rising_disc == "A") { particles.SetActive(true); particles.transform.localPosition = new Vector3(1.9f, 2f , -2f); }
+            if (rising_disc == "B") { particles.SetActive(true); particles.transform.localPosition = new Vector3(0f, 2f, -2f); }
+            if (rising_disc == "C") { particles.SetActive(true); particles.transform.localPosition = new Vector3(-1.9f, 2f, -2f); }
 
-            if (rising_disc != "B") { health_disc_b -= Random.Range(Time.deltaTime * ((difficulty * 5f) + 15f), Time.deltaTime * ((difficulty * 5f) + 15f * 1.5f)); }
-            else { health_disc_b += Time.deltaTime * 20f; if (health_disc_b > 100f) { rising_disc = "none"; } }
+            if (button_cooldown > 0f || rising_disc == "A" || health_disc_a > 90f) { renderer_a.material = inactive_button; } else { renderer_a.material = active_button; }
+            if (button_cooldown > 0f || rising_disc == "B" || health_disc_b > 90f) { renderer_b.material = inactive_button; } else { renderer_b.material = active_button; }
+            if (button_cooldown > 0f || rising_disc == "C" || health_disc_c > 90f) { renderer_c.material = inactive_button; } else { renderer_c.material = active_button; }
 
-            disc_a_trans.localPosition = new Vector3(-1.25f, CalculateHeight(health_disc_a), -1.9f);
-            disc_b_trans.localPosition = new Vector3(1.25f, CalculateHeight(health_disc_b), -1.9f);
+            if (button_cooldown > -1f) { button_cooldown -= Time.deltaTime; }
+
+            if (cylinder_speed > a_speed) { a_speed += Time.deltaTime * difficulty * 2f; }
+            if (cylinder_speed > b_speed) { b_speed += Time.deltaTime * difficulty * 2f; }
+            if (cylinder_speed > c_speed) { c_speed += Time.deltaTime * difficulty * 2f; }
+
+            health_disc_a -= a_speed * Time.deltaTime;
+            health_disc_b -= b_speed * Time.deltaTime;
+            health_disc_c -= c_speed * Time.deltaTime;
+
+            if (rising_disc == "A") { a_speed -= Time.deltaTime * 18f; if (health_disc_a > 90f) { rising_disc = "none"; } }
+
+            if (rising_disc == "B") { b_speed -= Time.deltaTime * 18f; if (health_disc_b > 90f) { rising_disc = "none"; } }
+
+            if (rising_disc == "C") { c_speed -= Time.deltaTime * 18f; if (health_disc_c > 90f) { rising_disc = "none"; } }
+
+            disc_a_trans.localPosition = new Vector3(1.9f, CalculateHeight(health_disc_a), -1.9f);
+            disc_b_trans.localPosition = new Vector3(0f, CalculateHeight(health_disc_b), -1.9f);
+            disc_c_trans.localPosition = new Vector3(-1.9f, CalculateHeight(health_disc_c), -1.9f);
 
             if (0f > health_disc_a) { Failed(); }
             if (0f > health_disc_b) { Failed(); }
+            if (0f > health_disc_c) { Failed(); }
+
+            if (100f < health_disc_a) { health_disc_a = 100f; if (a_speed < 0f) { a_speed = 0f; } }
+            if (100f < health_disc_b) { health_disc_b = 100f; if (b_speed < 0f) { b_speed = 0f; } }
+            if (100f < health_disc_c) { health_disc_c = 100f; if (c_speed < 0f) { c_speed = 0f; } }
 
         }
 
