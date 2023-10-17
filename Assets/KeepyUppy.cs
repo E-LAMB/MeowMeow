@@ -25,15 +25,48 @@ public class KeepyUppy : MonoBehaviour
 
     public float difficulty = 1f;
 
+    public string rising_disc;
+
+    public Transform disc_a_trans;
+    public Transform disc_b_trans;
+
+    public Transform disc_marker_up;
+    public Transform disc_marker_down;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public void GameSetup()
+    public void GameBegin()
     {
+        if (!currently_playing)
+        {
+            health_disc_a = 100f;
+            health_disc_b = 100f;
+            currently_playing = true;
+            rising_disc = "none";
+        }
+    }
 
+    public void PushDisc(string disc_name)
+    {
+        if (currently_playing && rising_disc == "none")
+        {
+            rising_disc = disc_name;
+        }
+    }
+
+    public float CalculateHeight(float dist)
+    {
+        float whole = disc_marker_up.transform.localPosition.y - disc_marker_down.transform.localPosition.y;
+        return disc_marker_down.transform.localPosition.y + (whole * (dist/ 100f));
+    }
+
+    public void Failed()
+    {
+        currently_playing = false;
     }
 
     // Update is called once per frame
@@ -43,9 +76,17 @@ public class KeepyUppy : MonoBehaviour
         if (currently_playing)
         {
 
-            height_disc_a
+            if (rising_disc != "A") { health_disc_a -= Random.Range(Time.deltaTime * ((difficulty * 5f) + 15f), Time.deltaTime * ((difficulty * 5f) + 15f * 1.5f)); }
+            else { health_disc_a += Time.deltaTime * 20f; if (health_disc_a > 100f) { rising_disc = "none"; } }
 
+            if (rising_disc != "B") { health_disc_b -= Random.Range(Time.deltaTime * ((difficulty * 5f) + 15f), Time.deltaTime * ((difficulty * 5f) + 15f * 1.5f)); }
+            else { health_disc_b += Time.deltaTime * 20f; if (health_disc_b > 100f) { rising_disc = "none"; } }
 
+            disc_a_trans.localPosition = new Vector3(-1.25f, CalculateHeight(health_disc_a), -1.9f);
+            disc_b_trans.localPosition = new Vector3(1.25f, CalculateHeight(health_disc_b), -1.9f);
+
+            if (0f > health_disc_a) { Failed(); }
+            if (0f > health_disc_b) { Failed(); }
 
         }
 
