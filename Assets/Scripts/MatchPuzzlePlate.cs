@@ -156,9 +156,9 @@ public class MatchPuzzlePlate : MonoBehaviour
         if (!has_given_award)
         {
             has_given_award = true;
+            Mind.total_solves += 1;
             my_progressor.CompletedMatch();
             my_progressor.match_state = 1;
-            Mind.total_solves += 1;
         }
     }
 

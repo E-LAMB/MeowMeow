@@ -5,15 +5,21 @@ using UnityEngine.InputSystem.HID;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.Events;
 
+// This script works with the NoVRInt (Interactable) component to run different Functions() when interacted with, Similar to XR's Simple Interactable.
 public class NoVR : MonoBehaviour
 {
 
-    RaycastHit hit;
-    GameObject my_camera;
+    RaycastHit hit; // The data from our raycast (More on that later)
+
+    GameObject my_camera; // The main camera - The eyes the player will see out of
+
+    // Different variables handling the camera movement - Such as the Yaw / Pitch as well as the sensitivity
     private float yaw, pitch;
-    public float sensitivity;
-    public bool run_without_headset;
-    bool is_moving_cam;
+    public float sensitivity = 3; // I find "3" to be a good number
+
+    public bool run_without_headset; // THIS IS VERY IMPORTANT. 
+
+    bool is_moving_cam; // This bool shows if the player is moving the camera or not. It's used to prevent accidental interaction while looking around
 
     // Start is called before the first frame update
     void Start()

@@ -64,7 +64,7 @@ public class TeleportPad : MonoBehaviour
     {
         if (is_count_controlled)
         {
-            if (Mind.total_solves > 4)
+            if (Mind.total_solves > 3)
             {
                 screen_text.text = "ENTER";
             } else

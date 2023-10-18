@@ -39,14 +39,14 @@ public class LookPuzzle : MonoBehaviour
     {
         // prize.SetActive(true);
         progressor.look_progress += 1;
-        progressor.look_state = 1; 
+        progressor.look_state = 1;
+        Mind.total_solves += 1;
         progressor.CompletedLook();
         is_active = false;
 
         good_light.SetActive(true);
         bad_light.SetActive(false);
         normal_light.SetActive(false);
-        Mind.total_solves += 1;
     }
 
     public void Failed()
