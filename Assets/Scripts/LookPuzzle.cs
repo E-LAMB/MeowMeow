@@ -46,6 +46,7 @@ public class LookPuzzle : MonoBehaviour
         good_light.SetActive(true);
         bad_light.SetActive(false);
         normal_light.SetActive(false);
+        Mind.total_solves += 1;
     }
 
     public void Failed()

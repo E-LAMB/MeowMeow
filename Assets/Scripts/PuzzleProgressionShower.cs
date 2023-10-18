@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PuzzleProgressionShower : MonoBehaviour
@@ -41,19 +42,43 @@ public class PuzzleProgressionShower : MonoBehaviour
         lookPuzzle.SetUpGame(look_progress);
     }
 
+    // Flip the tiles to pair the matching items together.Match them all together to win!
+
     public void CompletedMatch()
     {
-        match_receiver.Awarded(cosmetics_manager.RewardRandomCosmetic());
+        if (Mind.total_solves == 4 || Mind.total_solves == 8)
+        {
+            match_receiver.UnlockedPuzzle();
+        } else
+        {
+            match_receiver.Awarded(cosmetics_manager.RewardRandomCosmetic());
+        }
+
+        if (match_progress == 3)
+        {
+            match_receiver.the_description.text = "Flip the tiles to pair the matching items together. Match them all together to win! Make sure to match up The Anomaly last!";
+        }
     }
 
     public void CompletedLook()
     {
-        look_receiver.Awarded(cosmetics_manager.RewardRandomCosmetic());
+        if (Mind.total_solves == 4 || Mind.total_solves == 8)
+        {
+            match_receiver.UnlockedPuzzle();
+        }
+        else
+        {
+            look_receiver.Awarded(cosmetics_manager.RewardRandomCosmetic());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        match_receiver.completion.text = Mathf.RoundToInt(match_progress / 6f).ToString() + "%";
+        look_receiver.completion.text = Mathf.RoundToInt((look_progress - 1f) / 6f).ToString() + "%";
+
         if (match_state == 1)
         {
             match_shutter_rotation += Time.deltaTime * 60f;

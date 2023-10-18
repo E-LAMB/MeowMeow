@@ -26,6 +26,7 @@ public class NoVR : MonoBehaviour
             {
                 to_disable[i].SetActive(false);
             }
+            GameObject.FindGameObjectWithTag("CameraOffset").transform.localPosition = Vector3.up;
         } else
         {
             Destroy(gameObject);

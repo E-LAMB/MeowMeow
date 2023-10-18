@@ -158,6 +158,7 @@ public class MatchPuzzlePlate : MonoBehaviour
             has_given_award = true;
             my_progressor.CompletedMatch();
             my_progressor.match_state = 1;
+            Mind.total_solves += 1;
         }
     }
 

@@ -10,6 +10,7 @@ TagManager:
   - CosMan
   - Broadcaster
   - HeadsetKit
+  - CameraOffset
   layers:
   - Default
   - TransparentFX
