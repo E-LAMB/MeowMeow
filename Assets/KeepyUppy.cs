@@ -77,7 +77,7 @@ public class KeepyUppy : MonoBehaviour
             a_speed = Random.Range(0f, 2.5f);
             b_speed = Random.Range(0f, 2.5f);
             c_speed = Random.Range(0f, 2.5f);
-            cylinder_speed = 7f + (difficulty * 2f);
+            cylinder_speed = 7f + (difficulty * 3f);
             currently_playing = true;
             rising_disc = "none";
             particles_a.Stop();
@@ -103,7 +103,7 @@ public class KeepyUppy : MonoBehaviour
             if (disc_name == "C") {  particles_c.Play(); }
 
             rising_disc = disc_name;
-            button_cooldown = 1f + (difficulty / 10f);
+            button_cooldown = 1.2f + (difficulty / 10f);
         }
     }
 

@@ -9,6 +9,7 @@ public class DressupButtons : MonoBehaviour
     public Material my_cosmetic;
     public string my_type;
     public int my_index;
+    public Material display_icon;
 
     [Header("Assign in PREFAB / Automatically")]
     public NewDressup my_dress;
@@ -65,6 +66,7 @@ public class DressupButtons : MonoBehaviour
             } else
             {
                 my_renderer.material = my_cosmetic;
+                if (display_icon != null) { my_renderer.material = display_icon; }
             }
         }
         if (my_type == "BODY")
@@ -76,6 +78,7 @@ public class DressupButtons : MonoBehaviour
             } else
             {
                 my_renderer.material = my_cosmetic;
+                if (display_icon != null) { my_renderer.material = display_icon; }
             }
         }
         if (my_type == "LEGS")
@@ -87,6 +90,7 @@ public class DressupButtons : MonoBehaviour
             } else
             {
                 my_renderer.material = my_cosmetic;
+                if (display_icon != null) { my_renderer.material = display_icon; }
             }
         }
     }
