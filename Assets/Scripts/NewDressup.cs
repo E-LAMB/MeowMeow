@@ -105,21 +105,29 @@ public class NewDressup : MonoBehaviour
 
         head_unlocked[0] = true;
 
-        if (current_list.Contains("#CH_TEMP_DEF")) { head_unlocked[0] = true; }
-        if (current_list.Contains("#CH_TEMP_PINK1")) { head_unlocked[1] = true; }
-        if (current_list.Contains("#CH_TEMP_BLUE1")) { head_unlocked[2] = true; }
+        if (current_list.Contains("#DEFAULT")) { head_unlocked[0] = true; }
+        if (current_list.Contains("#DEFAULT")) { body_unlocked[0] = true; }
+        if (current_list.Contains("#DEFAULT")) { legs_unlocked[0] = true; }
 
-        if (current_list.Contains("#CB_TEMP_DEF")) { body_unlocked[0] = true; }
-        if (current_list.Contains("#CB_TEMP_RED1")) { body_unlocked[1] = true; }
-        if (current_list.Contains("#CB_TEMP_PURPLE1")) { body_unlocked[2] = true; }
-        if (current_list.Contains("#CB_TEMP_BLUE1")) { body_unlocked[3] = true; }
-        if (current_list.Contains("#CB_TEMP_LIME1")) { body_unlocked[4] = true; }
-        if (current_list.Contains("#CB_TEMP_YELLOW1")) { body_unlocked[5] = true; }
+        if (current_list.Contains("#CH_01")) { head_unlocked[1] = true; }
+        if (current_list.Contains("#CH_02")) { head_unlocked[2] = true; }
+        if (current_list.Contains("#CH_03")) { head_unlocked[3] = true; }
 
-        if (current_list.Contains("#CL_TEMP_DEF")) { legs_unlocked[0] = true; }
-        if (current_list.Contains("#CL_TEMP_RED1")) { legs_unlocked[1] = true; }
-        if (current_list.Contains("#CL_TEMP_LIME1")) { legs_unlocked[2] = true; }
-        if (current_list.Contains("#CL_TEMP_BLUE1")) { legs_unlocked[3] = true; }
+        if (current_list.Contains("#CB_01")) { body_unlocked[1] = true; }
+        if (current_list.Contains("#CB_02")) { body_unlocked[2] = true; }
+        if (current_list.Contains("#CB_03")) { body_unlocked[3] = true; }
+        if (current_list.Contains("#CB_04")) { body_unlocked[4] = true; }
+        if (current_list.Contains("#CB_05")) { body_unlocked[5] = true; }
+        if (current_list.Contains("#CB_06")) { body_unlocked[6] = true; }
+        if (current_list.Contains("#CB_07")) { body_unlocked[7] = true; }
+        if (current_list.Contains("#CB_08")) { body_unlocked[8] = true; }
+        if (current_list.Contains("#CB_09")) { body_unlocked[9] = true; }
+        if (current_list.Contains("#CB_10")) { body_unlocked[10] = true; }
+        if (current_list.Contains("#CB_11")) { body_unlocked[11] = true; }
+
+        if (current_list.Contains("#CL_01")) { legs_unlocked[1] = true; }
+        if (current_list.Contains("#CL_02")) { legs_unlocked[2] = true; }
+        if (current_list.Contains("#CL_03")) { legs_unlocked[3] = true; }
 
         has_not_read_cosmetics = false;
     }

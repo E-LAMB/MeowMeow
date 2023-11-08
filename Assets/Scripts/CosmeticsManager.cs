@@ -37,7 +37,7 @@ public class CosmeticsManager : MonoBehaviour
 
     public NewDressup my_new_dressup;
 
-    public string current_cosmetics = "#CH_TEMP_DEF#CB_TEMP_DEF#CL_TEMP_DEF";
+    public string current_cosmetics = "#DEFAULT";
 
     public string[] cosmetics_to_earn;
     public string[] cosmetic_names;

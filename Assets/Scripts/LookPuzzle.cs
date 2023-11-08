@@ -73,10 +73,10 @@ public class LookPuzzle : MonoBehaviour
 
         if (progression == 1) { amount_to_set = 0; }
         if (progression == 2) { amount_to_set = 2; }
-        if (progression == 3) { amount_to_set = 3; }
-        if (progression == 4) { amount_to_set = 5; }
-        if (progression == 5) { amount_to_set = 7; }
-        if (progression == 6) { amount_to_set = 8; }
+        if (progression == 3) { amount_to_set = 5; }
+        if (progression == 4) { amount_to_set = 7; }
+        if (progression == 5) { amount_to_set = 8; }
+        if (progression == 6) { amount_to_set = 9; }
         if (progression == 7) { amount_to_set = 10; }
         if (progression == 8) { amount_to_set = 10; }
 
