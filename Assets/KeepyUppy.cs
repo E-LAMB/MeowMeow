@@ -130,7 +130,7 @@ public class KeepyUppy : MonoBehaviour
         particles_b.Stop();
         particles_c.Stop();
         difficulty += 1;
-        if (difficulty == 7)
+        if (difficulty == 8)
         {
             completed = true;
         }

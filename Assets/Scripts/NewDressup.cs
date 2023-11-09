@@ -128,6 +128,9 @@ public class NewDressup : MonoBehaviour
         if (current_list.Contains("#CL_01")) { legs_unlocked[1] = true; }
         if (current_list.Contains("#CL_02")) { legs_unlocked[2] = true; }
         if (current_list.Contains("#CL_03")) { legs_unlocked[3] = true; }
+        if (current_list.Contains("#CL_04")) { legs_unlocked[4] = true; }
+        if (current_list.Contains("#CL_05")) { legs_unlocked[5] = true; }
+        if (current_list.Contains("#CL_06")) { legs_unlocked[6] = true; }
 
         has_not_read_cosmetics = false;
     }

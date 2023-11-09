@@ -79,6 +79,7 @@ public class LookPuzzle : MonoBehaviour
         if (progression == 6) { amount_to_set = 9; }
         if (progression == 7) { amount_to_set = 10; }
         if (progression == 8) { amount_to_set = 10; }
+        if (progression == 9) { amount_to_set = 10; }
 
         head_chosen = all_head_materials[Random.Range(0, all_head_materials.Length)];
         body_chosen = all_body_materials[Random.Range(0, all_body_materials.Length)];
@@ -113,7 +114,7 @@ public class LookPuzzle : MonoBehaviour
                 limit_break += 1;
                 chosen_one = all_mans[Random.Range(0, all_mans.Length)];
                 if (chosen_one.GetComponent<LookMani>()) { chosen_bool = (chosen_one.GetComponent<LookMani>().setup_id == setup_id); }
-                Debug.Log(chosen_bool);
+                // Debug.Log(chosen_bool);
             }
             if (limit_break == 500) { Debug.Log("LIMIT BROKE"); Debug.Log(chosen_one); }
 

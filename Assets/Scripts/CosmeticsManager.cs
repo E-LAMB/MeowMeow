@@ -50,6 +50,8 @@ public class CosmeticsManager : MonoBehaviour
         int chosen_int = 0;
         int limit_break = 0;
 
+        Debug.Log("Tried award");
+
         while (chosen == "nothinghere" && limit_break < 500)
         {
             chosen_int = Random.Range(0, cosmetics_to_earn.Length);
@@ -71,12 +73,15 @@ public class CosmeticsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        current_cosmetics += "#DEFAULT";
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Mind.current_tp_frames > 0) { Mind.current_tp_frames -= 1; }
+
         if (give_random)
         {
             give_random = false;

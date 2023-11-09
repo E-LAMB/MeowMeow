@@ -132,7 +132,7 @@ public class PuzzleProgressionShower : MonoBehaviour
         if (look_state == 2)
         {
             look_shutter_wait -= Time.deltaTime;
-            if (0f > look_shutter_wait && look_progress < 7)
+            if (0f > look_shutter_wait && look_progress < 8)
             {
                 look_state = 3;
             }

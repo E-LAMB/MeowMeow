@@ -30,6 +30,7 @@ public class TeleportPad : MonoBehaviour
             if (Vector3.Distance(player_rig.transform.position, gameObject.transform.position) > 6f && Mind.able_to_teleport)
             {
                 particle_effect.Play();
+                Mind.current_tp_frames = 2;
                 player_rig.transform.position = new Vector3(gameObject.transform.position.x, vertical_height, gameObject.transform.position.z);
                 teleported = true;
                 //my_renderer.enabled = false;
@@ -42,6 +43,7 @@ public class TeleportPad : MonoBehaviour
             if (Vector3.Distance(player_rig.transform.position, gameObject.transform.position) > 6f && Mind.able_to_teleport && Mind.total_solves > 3)
             {
                 particle_effect.Play();
+                Mind.current_tp_frames = 2;
                 player_rig.transform.position = new Vector3(gameObject.transform.position.x, vertical_height, gameObject.transform.position.z);
                 teleported = true;
                 //my_renderer.enabled = false;
