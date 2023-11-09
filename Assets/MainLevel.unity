@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.3137255, g: 0.5137255, b: 0.9647059, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.012
+  m_FogDensity: 0.015
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -23905,7 +23905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 3
-  run_without_headset: 1
+  run_without_headset: 0
 --- !u!1001 &1258800099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30749,9 +30749,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cosmeticsManagerObject: {fileID: 937513482}
-  head_unlocked: 01000000
-  body_unlocked: 010000000000000000000000
-  legs_unlocked: 01000000000000
+  head_unlocked: 01000001
+  body_unlocked: 010000000000000000000001
+  legs_unlocked: 01000000000001
   current_head: {fileID: 2100000, guid: 69d18f487fe690d47ae3030d2d86b366, type: 2}
   current_body: {fileID: 2100000, guid: 69d18f487fe690d47ae3030d2d86b366, type: 2}
   current_leg: {fileID: 2100000, guid: 69d18f487fe690d47ae3030d2d86b366, type: 2}

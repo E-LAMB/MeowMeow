@@ -77,13 +77,13 @@ public class KeepyUppy : MonoBehaviour
             a_speed = Random.Range(0f, 2.5f);
             b_speed = Random.Range(0f, 2.5f);
             c_speed = Random.Range(0f, 2.5f);
-            cylinder_speed = 7f + (difficulty * 3f);
+            cylinder_speed = 7f + (difficulty * 2f);
             currently_playing = true;
             rising_disc = "none";
             particles_a.Stop();
             particles_b.Stop();
             particles_c.Stop();
-            time_until_win = (difficulty * 10f);
+            time_until_win = (difficulty * 5.5f);
             whole_time = time_until_win;
             time_expander.localScale = new Vector3(1f, 1f ,((whole_time - time_until_win) / whole_time) * 28f);
         }
@@ -103,7 +103,7 @@ public class KeepyUppy : MonoBehaviour
             if (disc_name == "C") {  particles_c.Play(); }
 
             rising_disc = disc_name;
-            button_cooldown = 1.2f + (difficulty / 10f);
+            button_cooldown = 1.2f + (difficulty / 15f);
         }
     }
 
@@ -130,7 +130,7 @@ public class KeepyUppy : MonoBehaviour
         particles_b.Stop();
         particles_c.Stop();
         difficulty += 1;
-        if (difficulty == 6)
+        if (difficulty == 7)
         {
             completed = true;
         }
