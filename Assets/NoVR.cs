@@ -21,6 +21,8 @@ public class NoVR : MonoBehaviour
 
     bool is_moving_cam; // This bool shows if the player is moving the camera or not. It's used to prevent accidental interaction while looking around
 
+    public GameObject canvas;
+
     void Start()
     {
 
@@ -46,15 +48,25 @@ public class NoVR : MonoBehaviour
 
         } else
         {
+            canvas.SetActive(false);
             Destroy(gameObject); 
             // Remember this script should only run if we aren't using the headset - So if we are we simply delete the gameobject housing the script.
             // We could disable it too, It's your choice!
         }
     }
 
+    public void StopGame()
+    {
+        Application.Quit();
+    }
+
     // Update is called once per frame, This is where the magic happens
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StopGame();
+        }
 
         if (Input.GetMouseButtonDown(1)) 
         {

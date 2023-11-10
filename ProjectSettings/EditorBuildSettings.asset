@@ -6,18 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MainLevel.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
     path: Assets/Home.unity
     guid: 5bf09bf12bb57c5478cc9fd5c803a78d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Test_LOOK.unity
     guid: 6d395b47c0705e24aae2638f07ac68d4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Test_MATCH.unity
     guid: bd42c0e554b6f3c4a83db47c1fd2faf7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Test_Dressup.unity
     guid: 01214fa9dae199e4ebf3097cb4b0d9ad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Juggle.unity
     guid: bbef871f925fe4b41bdd25cf5b9685f0
   m_configObjects:
